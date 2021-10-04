@@ -1,0 +1,113 @@
+:root {
+    /* Genéricos */
+    --c-body:       var(--c-tertiary);
+    --c-text:       rgba( 68, 68, 68,1);
+    --c-company:    rgba(255, 62,  0,1);
+    --c-company2:   rgba(255,255,255,1);
+    --c-primary:    rgba(255,255,255,1);
+    --c-secondary:  rgba(249,249,249,1);
+    --c-tertiary:   rgba(243,243,243,1);
+    --c-border:     rgba(197,197,197,1);
+    --border:       1px solid var(--c-border);
+    --c-shadow:     rgba(179,179,179,1);
+    --shadow:       0 0 5px 1px var(--c-shadow);
+    --shadow-hover: 0 0 1px 0px var(--c-shadow);
+    --margin:       25px;
+    --padding:      25px;
+    --margin-2:     75px;
+    --padding-2:    75px;
+    --transition:   0.3s;
+    --c-warning:    rgba(243,173, 69,1);
+    --c-warning2:   rgba(255,255, 255,1);
+    --c-error:      rgba(220, 53, 69,1);
+    --c-error2:     rgba(255,255, 255,1);
+    --c-positive:   rgba( 25,135, 84,1);
+    --c-positive2:  rgba(255,255, 255,1);
+
+    /*Font*/
+    --font-1:       'Ubuntu', sans-serif;
+
+    /* Botón */
+    --c-btn:        var(--c-company);
+    --bg-btn:       var(--c-company2);
+
+    /* Enlace */
+    --c-link:       rgba( 68, 68, 68,1);
+    --c-link-hover: var(--c-company);
+    --c-link-active: var(--c-company);
+
+    /* Subrayado */
+    --c-selection:  var(--c-company);;
+    --bg-selection: rgba(255,255,255,1);
+}
+
+html{
+    font-size: 100%;
+}
+
+body {
+	margin: 0;
+    font-family: var(--font-1);
+}
+
+::selection{
+    background: var(--c-selection);
+    color: var(--bg-selection);
+}
+
+a{
+    cursor: pointer;
+    color: var(--c-link);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--c-link-hover);
+}
+
+/* Nueva especificación de persolalizacion de la barra de desplazamiento */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-company) var(--c-company2);
+}
+/* Personalizacion de la barra de desplazamiento para navegadores basados en webkit */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--c-company2);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--c-company) ;
+    border-radius: 6px;
+    border: 1px solid var(--c-company2);
+}
+
+/* FRAMEWORK CSS */
+.bold           { font-weight: bold; }
+.text-justify   { text-align: justify; }
+.text-center    { text-align: center; }
+.word-break     {word-break: break-all;}
+
+.margin         { margin: var(--margin);}
+.margin-2       { margin: var(--margin-2);}
+.m-top          { margin-top: var(--margin);}
+.m-top-2        { margin-top: var(--margin-2);}
+.m-bottom       { margin-bottom: var(--margin);}
+.m-bottom-2     { margin-bottom: var(--margin-2);}
+
+.padding        { padding: var(--padding); }
+.padding-2      { padding: var(--padding-2); }
+
+.p-top          { padding-top: var(--margin);}
+.p-top-2        { padding-top: var(--margin-2);}
+.p-bottom       { padding-bottom: var(--margin);}
+.p-bottom-2     { padding-bottom: var(--margin-2);}
+
+.overflow-h     { overflow: hidden; }
+.d-i-block      {display: inline-block;}
+.d-block        {display: block;}
+.d-grid         {display: grid;}
+.d-flex         {display: flex;}
