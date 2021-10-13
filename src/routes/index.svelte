@@ -3,33 +3,22 @@
 </script>
 
 <script>
-	import CardData from "$lib/layout/CardData.svelte";
+    // ESTILOS GLOBALES
+    import "../app.css"
+    // STORES
+    import { selectedBadge, edit } from"$lib/stores/options.js";
+    import { subtotal } from"$lib/stores/options.js";
+	// COMPONENTES
+    import CardData from "$lib/layout/CardData.svelte";
     import Concept from "$lib/layout/Concept.svelte";
     import Billing from "$lib/layout/Billing.svelte";
-    import ConceptForm from "$lib/layout/ConceptForm.svelte";
-
-    let concepts = [
-        { amount: 1, product: "Milk", price: 30, price_total: 30, done: false },
-        { amount: 2, product: "Molk", price: 30, price_total: 60, done: false },
-        { amount: 3, product: "Malk", price: 30, price_total: 90, done: false }
-    ];
-
-    let 
-        amount,
-        product,
-        price
-    ;
-
-    const remove = concept => {
-        concepts = concepts.filter(i => i !== concept);
-    };
-
-    console.log(concepts);
+    import Options from "$lib/layout/options.svelte";
+    
 
 </script>
 
-<main>
-    <div class="cards-data padding">
+<main class="main">
+    <div class="cards-data">
         <CardData
             img="https://japp.es/wp-content/uploads/2019/12/Icono-fondo-movil.png"
             company="Compañia"
@@ -38,7 +27,8 @@
             address="domicilio"
             telephone="999 888 777"
             email="miemail@miemail.com"
-            Web="www.miweb.com"
+            web="www.miweb.com"
+            edit={$edit}
         />
         <CardData
             img="https://japp.es/wp-content/uploads/2019/12/Icono-fondo-movil.png"
@@ -48,78 +38,60 @@
             address="domicilio"
             telephone="999 888 777"
             email="miemail@miemail.com"
-            Web="www.miweb.com"
+            web="www.miweb.com"
+            edit={$edit}
         />
     </div>
-    <div class="padding">
-        <ConceptForm {amount} {product} {price} />
-        
-        <div class="concepts"> 
-            <div><i class="fas fa-boxes"></i> Nº</div>
-            <div><i class="fas fa-clipboard-list"></i> Producto</div>
-            <div><i class="fas fa-tag"></i> Precio</div>
-            <div><i class="fas fa-tags"></i> Total</div>
-        </div>
-        {#each concepts as concept}
-        <Concept amount={concept.amount} product={concept.product} price={concept.price} price_total={concept.price_total}/>
-        <button on:click={() => remove(concept)}>&times;</button>
-        {/each}
-    </div>
+    
+    <Concept badge={$selectedBadge}/>
 
     <Billing
-        class="padding"
         n_invoice="JS-345"
-        subtotal="80€"
-        invoiced="23 septiembre, 2021"
-        discount="3%"
-        end="23 septiembre, 2021"
-        tax="3%"
-        paid="false"
-        total="78,30€" 
+        subtotal={$subtotal}
+        invoiced="2021-05-31"
+        end="2021-05-31"
+        discount="10"
+        tax="0.5"
+        edit={$edit}
+        badge={$selectedBadge}
     />
+
+    <Options />
 </main>
 
-<style>
+<style lang="postcss">
 	main{
+        background: var(--c-company2);
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr auto;
+        grid-template-rows: auto 1fr auto auto;
+        grid-gap: 25px;
         height: 100vh;
         max-width: 1024px;
         margin: 0 auto;
+
+        & .cards-data{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 10px;
+            margin: var(--margin);
+        }
     }
 
-    main .cards-data{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-gap: 10px;
+    /* Ajustes de impresión */
+    @media print {
+        main .cards-data{ grid-template-columns: repeat(2,1fr) !important; }
     }
 
-    main .concepts{
-        background: var(--c-company);
-        border-radius: 3px;
-        color: var(--c-company2);
-        display: grid;
-        grid-template-columns: 100px 1fr 100px 100px;
-        align-items: center;
-    }
-
-    main .concepts div{
-        padding: 10px;
-    }
-
-    .concepts div:nth-child(3),
-    .concepts div:nth-child(4){
-        text-align: right;
-    }
-
-	@media (max-width: 768px) {
+    /* Adaptativa */
+	@media (max-width: 768px) 
+    {
 		main {
 			max-width: none;
-		}
 
-        main .cards-data{
-            grid-template-columns: 1fr;
-        }
+            & .cards-data{
+                grid-template-columns: 1fr;
+            } 
+		} 
 	}
 </style>

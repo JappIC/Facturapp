@@ -1,38 +1,79 @@
-# create-svelte
+# Facturapp
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+Facturapp es una aplicación web desarrollado usando el Framework SvelteKit. Esta aplicación permite crear facturas y automatiza el cálculo dependiendo de los conceptos, descuento e impuestos que introduzcas en la aplicación
 
-## Creating a project
+- SvelteKit está en versión beta. No se recomienda el uso de Facturapp en producción
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Opciones y componentes:
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+El componente CardData permite Añadir datos de la empresa facturadora y la empresa a la que se factura:
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+- Nombre de empresa.
+- NIF o DNI.
+- Calle y número.
+- Domicilio y CP.
+- Teléfono.
+- Email.
+- URL Web.
 
-> Note: the `@next` is temporary
+El componente Concept permite añadir los productos que se van a facturar:
 
-## Developing
+- Cantidad del producto.
+- Descripción del producto.
+- Precio por unidad.
+- Precio de unidad por la cantidad. Este paso se realiza de forma automática.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+El componente Billings permite añadir datos de factura y el cálculo final:
+
+- Nº de factura.
+- Fecha de facturación.
+- Fecha de finalización.
+- Estado de factura, paga, impaga o presupuesto.
+- Subtotal. Se hace de forma automatizada sumando el total de todos los conceptos.
+- Añadir descuento. La aplicación hará el cálculo automático calculando el % en el subtotal.
+- Añadir impuesto. La aplicación hará el cálculo automático calculando el % en el subtotal más el descuento.
+- Total. Este cálculo se realiza de forma automática.
+
+El componente Options permite activar la edición y otras opciones como:
+
+- Tipo de divisa, euro o dolar.
+- Estado de factura, paga, impaga o presupuesto
+- Opción para activar el formato de edición.
+- Botón imprimir o guardar en pdf
+
+<img src="/static/img/Ejemplo-editor-facturapp.png" alt="Facturapp"/>
+
+## Otros datos de interes:
+
+Facturapp contiene css para formatear el resultado final de la factura eliminando los componentes u opciones de edición. También evita que el pdf o factura a imprimir muestren la url y fecha en la parte inferior o superior del documento.
+
+<img src="/static/img/Ejemplo-factura-final.png" alt="Facturapp"/>
+
+## Librerias y dependencias adicionales a SvelteKit:
+
+- Font Awesome CDN V5.15.3
+- Google Fonts CDN
+
+## Desarrollo
+
+Una vez instaladas las dependencias con `npm install` (o `pnpm install` o `yarn`), inicia un servidor de desarrollo:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
+# o inicia el servidor y abre la aplicación en una nueva pestaña del navegador
 npm run dev -- --open
 ```
 
-## Building
+## Producción
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+Antes de crear una versión de producción de tu aplicación, instala un [adaptador] (https://kit.svelte.dev/docs#adapters) para tu entorno de destino. Luego:
 
 ```bash
 npm run build
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+> Puedes obtener una vista previa de la aplicación creada con `npm run preview`, independientemente de si instaló un adaptador. Esto _no_ debes usarlo para entregar tu aplicación en producción.
+
+## Licencia
+
+[MIT](LICENSE.md)

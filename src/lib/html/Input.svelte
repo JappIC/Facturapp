@@ -14,14 +14,13 @@ Esto se debe porque svelte maneja el "value" de estos input de manera diferente 
 
 <style>
     input{
-        border: var(--border);
+        border:0;
         border-radius: 5px;
         background-color: var(--c-secondary);
-        color: var(--c-text);
         font-family: var(--font-1);
         font-size: var(--font-size);
         outline: 0;
-        padding: 6px 6px;
+        padding: 0;
         transition: var(--transition);
     }
 
@@ -115,6 +114,11 @@ Esto se debe porque svelte maneja el "value" de estos input de manera diferente 
         --input-border: #ccc;
         background-color: #eee;
         cursor: not-allowed;
+    }
+
+    .format{
+        border: var(--border);
+        padding: 6px 6px;
     }
 
 </style>

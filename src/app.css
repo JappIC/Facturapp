@@ -85,11 +85,46 @@ html {
     border: 1px solid var(--c-company2);
 }
 
+ 
+    button{
+        background: var(--bg-btn);
+        border: 1px solid var(--c-btn);;
+        border-radius: 5px;
+        color: var(--c-btn);
+        cursor: pointer;
+        font-family: var(--font-1);
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 20px;
+        text-decoration: none;
+        text-align: center;
+        transition: var(--transition);
+    }
+
+    button:hover
+    {
+        background: var(--c-btn);
+        color: var(--bg-btn);
+    }
+
+    button:active
+    {
+        position:relative;
+        top:1px;
+    }
+    .mini-btn{
+        padding: 2px;
+    }
+
 /* FRAMEWORK CSS */
+.c-company      { color:var(--c-company);}
+
 .bold           { font-weight: bold; }
 .text-justify   { text-align: justify; }
 .text-center    { text-align: center; }
-.word-break     {word-break: break-all;}
+.text-right     { text-align: right; }
+.text-left      { text-align: left; }
+.word-break     { word-break: break-all;}
 
 .margin         { margin: var(--margin);}
 .margin-2       { margin: var(--margin-2);}
@@ -107,7 +142,19 @@ html {
 .p-bottom-2     { padding-bottom: var(--margin-2);}
 
 .overflow-h     { overflow: hidden; }
-.d-i-block      {display: inline-block;}
-.d-block        {display: block;}
-.d-grid         {display: grid;}
-.d-flex         {display: flex;}
+.d-i-block      { display: inline-block; }
+.d-block        { display: block; }
+.d-grid         { display: grid; }
+.d-flex         { display: flex; }
+
+.mini-btn{
+    padding: 5px 7px;
+}
+
+/* Eliminamos los metadatos de la página de impresión... Url, fecha...*/
+@media print {
+    @page { 
+        margin: 0;
+        size: auto; 
+    }
+}

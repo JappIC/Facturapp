@@ -7,7 +7,7 @@ Un componente para la etiqueta label
     export let 
         forr="",
         text,
-        icon
+        icon=null
     ;
 </script>
 

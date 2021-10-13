@@ -1,4 +1,5 @@
 <script>
+    import { Input } from"$lib/html/html.js";
     export let
         img,
         company,
@@ -7,43 +8,80 @@
         address,
         telephone,
         email,
-        Web
+        web,
+        edit= false
     ;
 </script>
-
-<div>
-    <img src={img} alt={company}>
+<div class="billing" class:edit>
+    <div>
+        {#if edit} 
+            <Input type="url" id="urlCompany" bind:value={img} class="bold"/>
+        {:else}
+            <img src={img} alt={company}>
+        {/if}
+    </div>
     <ul>
-        <li>{company}</li>
+        <li>
+            <i class="far fa-id-card"></i>
+            {#if edit} 
+                <Input type="text" id="company" bind:value={company} class="bold"/>
+            {:else}
+                {company}
+            {/if}
+        </li>
         <li>
             <i class="fas fa-fingerprint"></i> 
-            <span>{cif_nif}</span>
+            {#if edit} 
+                <Input type="text" id="cif-nif" bind:value={cif_nif} class="bold"/>
+            {:else}
+                <span>{cif_nif}</span>
+            {/if}
         </li>
         <li>
             <i class="fas fa-map-marker-alt"></i> 
-            <span>{street}</span>
+            {#if edit} 
+                <Input type="text" id="street" bind:value={street} class="bold"/>
+            {:else}
+                <span>{street}</span>
+            {/if}
         </li>
         <li>
             <i class="fas fa-map-marked-alt"></i> 
-            <span>{address}</span>
+            {#if edit} 
+                <Input type="text" id="address" bind:value={address} class="bold"/>
+            {:else}
+                <span>{address}</span>
+            {/if}
         </li>
         <li>
             <i class="fas fa-phone-volume"></i> 
-            <span>{telephone}</span>
+            {#if edit} 
+                <Input type="text" id="street" bind:value={telephone} class="bold"/>
+            {:else}
+                <span>{telephone}</span>
+            {/if}
         </li>
         <li>
             <i class="far fa-envelope"></i> 
-            <span>{email}</span>
+            {#if edit} 
+                <Input type="email" id="email" bind:value={email} class="bold"/>
+            {:else}
+                <span>{email}</span>
+            {/if}
         </li>
         <li>
             <i class="fas fa-globe-africa"></i> 
-            <span>{Web}</span>
+            {#if edit} 
+                <Input type="url" id="web" bind:value={web} class="bold"/>
+            {:else}
+                <span>{web}</span>
+            {/if}
         </li>
     </ul>
 </div>
 
 <style lang="postcss">
-    div{
+    .billing{
         border: var(--border);
         display: grid;
         grid-template-columns: auto 1fr;
@@ -71,6 +109,14 @@
                 font-size: 1.2rem;
                 font-weight: bold;
             }
+        }
+    }
+
+    .edit{
+        grid-template-columns: 1fr;
+
+        & > div{
+            padding: 5px;
         }
     }
 
