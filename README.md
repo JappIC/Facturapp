@@ -41,13 +41,13 @@ El componente Options permite activar la edición y otras opciones como:
 - Opción para activar el formato de edición.
 - Botón imprimir o guardar en pdf
 
-<img src="/static/img/Ejemplo-editor-facturapp.png" alt="Facturapp"/>
+<img src="/static/Ejemplo-editor-facturapp.png" alt="Facturapp"/>
 
 ## Otros datos de interes:
 
 Facturapp contiene css para formatear el resultado final de la factura eliminando los componentes u opciones de edición. También evita que el pdf o factura a imprimir muestren la url y fecha en la parte inferior o superior del documento.
 
-<img src="/static/img/Ejemplo-factura-final.png" alt="Facturapp"/>
+<img src="/static/Ejemplo-factura-final.png" alt="Facturapp"/>
 
 ## Librerias y dependencias adicionales a SvelteKit:
 
