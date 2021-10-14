@@ -61,7 +61,7 @@
         <Input type="number" id="amount" bind:value={amount} class="bold c-company format"/>
         <Input type="text" id="product" bind:value={product} class="bold c-company format"/>
         <Input type="number" step="any" id="price" bind:value={price} class="bold text-right c-company format"/>
-        <div>{price_total} <span>{badge}</span></div>
+        <div>{price_total.toFixed(2)} <span>{badge}</span></div>
         <button on:submit|preventDefault={addconcept} class="mini-btn"><i class="far fa-save"></i></button>
     </form>
 </div>

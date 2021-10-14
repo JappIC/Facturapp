@@ -1,5 +1,5 @@
 <script>
-    import { selectedInvoiceStatus } from"$lib/stores/options.js";
+    import { selectedInvoiceStatus, selectedTax } from"$lib/stores/options.js";
     import { Input } from"$lib/html/html.js";
 
     export let
@@ -84,7 +84,7 @@
         <li>
             <i class="fas fa-calculator"></i>
             <span>Subtotal</span>
-            <span>{subtotal} {badge}</span>
+            <span>{subtotal.toFixed(2)} {badge}</span>
         </li>
         <li>
             <i class="fas fa-tags"></i>
@@ -97,7 +97,7 @@
         </li>
         <li>
             <i class="fas fa-percentage"></i>
-            <span>IGIC - IVA</span>
+            <span>{$selectedTax}</span>
             {#if edit} 
                 <Input type="text" id="tax" bind:value={tax} class="bold text-right"/>
             {:else}
@@ -107,7 +107,7 @@
         <li>
             <i class="fas fa-cash-register"></i> 
             <span>Total</span>
-            <span><b>{total} {badge}</b></span>
+            <span><b>{total.toFixed(2)} {badge}</b></span>
         </li>
     </ul>
 </div>

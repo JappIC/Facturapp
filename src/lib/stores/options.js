@@ -7,6 +7,13 @@ export const badge = writable([
 ]);
 export const selectedBadge = writable();
 
+// Tipo de impuesto
+export const tax = writable([
+	{ value: "IVA", name:"IVA" },
+    { value: "IGIC", name:"IGIC" }
+]);
+export const selectedTax = writable();
+
 // Estado de factura o presupuesto
 export const invoiceStatus = writable([
 	{ value: "budget", name:"Presupuesto" },

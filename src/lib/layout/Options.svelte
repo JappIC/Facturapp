@@ -1,5 +1,5 @@
 <script>
-    import { badge, selectedBadge, invoiceStatus, selectedInvoiceStatus, edit } from"$lib/stores/options.js";
+    import { badge, selectedBadge, invoiceStatus, selectedInvoiceStatus, edit, selectedTax, tax } from"$lib/stores/options.js";
     import { Label ,InputCheck, Select } from"$lib/html/html.js";
 </script>
 
@@ -19,6 +19,13 @@
         />
     </div>
     <div>
+        <Label forr="tax" text="Impuesto"/> 
+        <Select
+            value={selectedTax}
+            options={tax}
+        />
+    </div>
+    <div>
         <Label forr="edit" text="Editar"/>
         <InputCheck id="edit" bind:checked={$edit} /> 
     </div>
@@ -32,7 +39,7 @@
     .options{
         align-items: center;
         display: grid;
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(5,1fr);
         grid-gap: 10px;
         justify-items: center;
         padding: 25px;
