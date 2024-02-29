@@ -88,7 +88,7 @@
         align-items: center;
 
         & img{
-            max-width: 150px;
+            max-width: 100px;
             width: 100%;
         }
 

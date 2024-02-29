@@ -13,14 +13,12 @@
     import Concept from "$lib/layout/Concept.svelte";
     import Billing from "$lib/layout/Billing.svelte";
     import Options from "$lib/layout/options.svelte";
-    
-
 </script>
 
 <main class="main">
     <div class="cards-data">
         <CardData
-            img="https://japp.es/wp-content/uploads/2019/12/Icono-fondo-movil.png"
+            img="https://japp.es/img/logo.svg"
             company="Compañia"
             cif_nif="G77777778"
             street="Calle y numero"
@@ -31,7 +29,7 @@
             edit={$edit}
         />
         <CardData
-            img="https://japp.es/wp-content/uploads/2019/12/Icono-fondo-movil.png"
+            img="https://japp.es/img/logo.svg"
             company="Compañia"
             cif_nif="G77777778"
             street="Calle y numero"
